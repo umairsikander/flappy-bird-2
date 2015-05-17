@@ -11,11 +11,11 @@ public class BGLooper : MonoBehaviour {
 	void Start() {
 		GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
 
-		foreach(GameObject pipe in pipes) {
-			Vector3 pos = pipe.transform.position;
-			pos.y = Random.Range(pipeMin, pipeMax);
-			pipe.transform.position = pos;
-		}
+//		foreach(GameObject pipe in pipes) {
+//			Vector3 pos = pipe.transform.position;
+//			pos.y = Random.Range(pipeMin, pipeMax);
+//			pipe.transform.position = pos;
+//		}
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
@@ -27,7 +27,7 @@ public class BGLooper : MonoBehaviour {
 
 		pos.x += widthOfBGObject * numBGPanels;
 
-		if(collider.tag == "Pipe") {
+		if(collider.tag == "Pipe") {                       //moving the panel with pipes
 			pos.y = Random.Range(pipeMin, pipeMax);
 		}
 

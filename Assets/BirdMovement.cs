@@ -60,21 +60,21 @@ public class BirdMovement : MonoBehaviour {
 			didFlap = false;
 		}
 
-		if(GetComponent<Rigidbody2D>().velocity.y > 0) {
-			transform.rotation = Quaternion.Euler(0, 0, 0);
-		}
-		else {
-			float angle = Mathf.Lerp (0, -90, (-GetComponent<Rigidbody2D>().velocity.y / 3f) );
-			transform.rotation = Quaternion.Euler(0, 0, angle);
-		}
+//		if(GetComponent<Rigidbody2D>().velocity.y > 0) {
+//			transform.rotation = Quaternion.Euler(0, 0, 0);
+//		}
+//		else {
+//			float angle = Mathf.Lerp (0, -90, (-GetComponent<Rigidbody2D>().velocity.y / 3f) );
+//			transform.rotation = Quaternion.Euler(0, 0, angle);
+//		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
-		if(godMode)
-			return;
-
-		animator.SetTrigger("Death");
-		dead = true;
-		deathCooldown = 0.5f;
-	}
+//	void OnCollisionEnter2D(Collision2D collision) {
+//		if(godMode)
+//			return;
+//
+//		animator.SetTrigger("Death");
+//		dead = true;
+//		deathCooldown = 0.5f;
+//	}
 }
