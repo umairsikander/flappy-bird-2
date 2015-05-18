@@ -28,48 +28,40 @@ public class BirdMovement : MonoBehaviour {
 	// Do Graphic & Input updates here
 	void Update() {
 		if(dead) {
-			deathCooldown -= Time.deltaTime;
+			deathCooldown -= Time.deltaTime;    //for restart the game by using space or mouse clic
 
-			if(deathCooldown <= 0) {
+			if(deathCooldown <= 0) {             //same
 				if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ) {
 					Application.LoadLevel( Application.loadedLevel );
 				}
 			}
 		}
-		else {
+		else {	                                   //for reapeat flap for space and mouse button.
 			if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ) {
-				didFlap = true;
-			}
-		}
+               didFlap = true;
+	    }
+      }
 	}
 
 	
 	// Do physics engine updates here
 	void FixedUpdate () {
 
-		if(dead)
+		if(dead)      //for bird death(one position)
 			return;
 
-		GetComponent<Rigidbody2D>().AddForce( Vector2.right * forwardSpeed );
+		GetComponent<Rigidbody2D>().AddForce( Vector2.right * forwardSpeed );   //moving to right otherwise only bird moving
 
-		if(didFlap) {
+		if(didFlap) {                                                          //for flap of bird using space button or mouse left click
 			GetComponent<Rigidbody2D>().AddForce( Vector2.up * flapSpeed );
 			animator.SetTrigger("DoFlap");
 
 
 			didFlap = false;
 		}
-
-//		if(GetComponent<Rigidbody2D>().velocity.y > 0) {
-//			transform.rotation = Quaternion.Euler(0, 0, 0);
-//		}
-//		else {
-//			float angle = Mathf.Lerp (0, -90, (-GetComponent<Rigidbody2D>().velocity.y / 3f) );
-//			transform.rotation = Quaternion.Euler(0, 0, angle);
-//		}
 	}
 
-//	void OnCollisionEnter2D(Collision2D collision) {
+//	void OnCollisionEnter2D(Collision2D collision) {    //for bird death animation
 //		if(godMode)
 //			return;
 //
