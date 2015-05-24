@@ -28,31 +28,31 @@ public class BirdMovement : MonoBehaviour {
 	// Do Graphic & Input updates here
 	void Update() {
 		if(dead) {
-			deathCooldown -= Time.deltaTime;    //for restart the game by using space or mouse clic
+			deathCooldown -= Time.deltaTime;
 
-			if(deathCooldown <= 0) {             //same
+			if(deathCooldown <= 0) {
 				if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ) {
 					Application.LoadLevel( Application.loadedLevel );
 				}
 			}
 		}
-		else {	                                   //for reapeat flap for space and mouse button.
+		else {
 			if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) ) {
-               didFlap = true;
-	    }
-      }
+				didFlap = true;
+			}
+		}
 	}
 
 	
 	// Do physics engine updates here
 	void FixedUpdate () {
 
-		if(dead)      //for bird death(one position)
+		if(dead)
 			return;
 
-		GetComponent<Rigidbody2D>().AddForce( Vector2.right * forwardSpeed );   //moving to right otherwise only bird moving
+		GetComponent<Rigidbody2D>().AddForce( Vector2.right * forwardSpeed );
 
-		if(didFlap) {                                                          //for flap of bird using space button or mouse left click
+		if(didFlap) {
 			GetComponent<Rigidbody2D>().AddForce( Vector2.up * flapSpeed );
 			animator.SetTrigger("DoFlap");
 
@@ -61,7 +61,7 @@ public class BirdMovement : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {    //for bird death animation
+	void OnCollisionEnter2D(Collision2D collision) {
 		if(godMode)
 			return;
 

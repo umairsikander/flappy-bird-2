@@ -9,7 +9,6 @@ public class BGLooper : MonoBehaviour {
 	float pipeMin = -0.003243029f;
 
 	void Start() {
-
 		GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
 	}
 
@@ -22,9 +21,7 @@ public class BGLooper : MonoBehaviour {
 
 		pos.x += widthOfBGObject * numBGPanels;
 
-
-
-		if(collider.tag == "Pipe") {                       //moving the panel with pipes
+		if(collider.tag == "Pipe") {
 			pos.y = Random.Range(pipeMin, pipeMax);
 		}
 
