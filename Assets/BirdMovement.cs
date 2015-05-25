@@ -61,12 +61,12 @@ public class BirdMovement : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
-		if(godMode)
-			return;
-
-		animator.SetTrigger("Death");
-		dead = true;
-		deathCooldown = 0.5f;
-	}
+//	void OnCollisionEnter2D(Collision2D collision) {
+//		if(godMode)
+//			return;
+//
+//		animator.SetTrigger("Death");
+//		dead = true;
+//		deathCooldown = 0.5f;
+//	}
 }
